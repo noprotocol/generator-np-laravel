@@ -7,17 +7,17 @@
     "laravel",
     "NoProtocol"
   ],
-  "homepage": "https://github.com/Nitrev/generator-np-laravel",
-  "bugs": "https://github.com/Nitrev/generator-np-laravel/issues",
+  "homepage": "https://github.com/Noprotocol/generator-np-laravel",
+  "bugs": "https://github.com/Noprotocol/generator-np-laravel/issues",
   "author": {
     "name": "Govert Verschuur",
-    "email": "govert@vees.nl",
-    "url": "https://github.com/Nitrev"
+    "email": "govert@noprotocol.nl",
+    "url": "https://github.com/Noprotocol"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Nitrev/generator-np-laravel.git"
+    "url": "git://github.com/Noprotocol/generator-np-laravel.git"
   },
   "scripts": {
     "test": "mocha"
