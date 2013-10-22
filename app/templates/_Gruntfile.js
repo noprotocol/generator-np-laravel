@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		watch: {
 			compass: {
-				files: ['sass/{,*/}*.{scss,sass}'],
+				files: ['public/scss/{,*/}*.{scss,sass}'],
 				tasks: ['compass:development']
 			},
 			scripts: {
@@ -24,8 +24,8 @@ module.exports = function(grunt) {
 		compass: {
 			options: {
 				relativeAssets: true,
-				sassDir: 'sass',
-				cssDir: 'css',
+				sassDir: 'public/scss',
+				cssDir: 'public/css',
 				imagesDir: 'img',
 				javascriptsDir: 'js',
 				fontsDir: 'fonts'
