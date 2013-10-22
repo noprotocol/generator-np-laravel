@@ -1,0 +1,22 @@
+/# original laravel settings
+/bootstrap/compiled.php
+composer.phar
+composer.lock
+
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# User specific & automatically generated files #
+#################################################
+node_modules
+*.subl*
+/public/css/* #css should be generated though grunt/compass

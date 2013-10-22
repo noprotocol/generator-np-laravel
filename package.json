@@ -1,0 +1,47 @@
+{
+  "name": "generator-np-laravel",
+  "version": "0.0.1",
+  "description": "A Laravel generator for Yeoman based on the best practices of NoProtocol",
+  "keywords": [
+    "yeoman-generator",
+    "laravel",
+    "NoProtocol"
+  ],
+  "homepage": "https://github.com/Nitrev/generator-np-laravel",
+  "bugs": "https://github.com/Nitrev/generator-np-laravel/issues",
+  "author": {
+    "name": "Govert Verschuur",
+    "email": "govert@vees.nl",
+    "url": "https://github.com/Nitrev"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Nitrev/generator-np-laravel.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.13.0",
+    "fs-extra": "~0.6.3",
+    "passthru": "~0.3.0",
+    "adm-zip": "~0.4.3",
+    "fs-extra": "~0.6.3"
+  },
+  "devDependencies": {
+    "mocha": "~1.12.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0-rc.1"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}

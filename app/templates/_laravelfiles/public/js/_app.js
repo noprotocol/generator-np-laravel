@@ -1,0 +1,3 @@
+/**
+ * Main app .js file
+ */
