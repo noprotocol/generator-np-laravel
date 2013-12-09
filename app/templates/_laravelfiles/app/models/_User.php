@@ -1,6 +1,6 @@
 <?php
 
-class User extends BaseModel  {
+class User extends Eloquent  {
 
 	/**
 	 * The database table used by the model.

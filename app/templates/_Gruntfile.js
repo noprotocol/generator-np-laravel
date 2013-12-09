@@ -2,20 +2,18 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 
-	// project configuration
 	grunt.initConfig({
 		watch: {
-			compass: {
-				files: ['public/scss/{,*/}*.{scss,sass}'],
+			styles: {
+				files: ['public/scss/{,*/}*.scss'],
 				tasks: ['compass:development']
 			},
 			scripts: {
-				files: ['js/{,*/}*.js']
+				files: ['js/**/*.js']
 			},
 			views: {
-				files: ['index.html', 'views/{,*/}*.{html}'],
+				files: ['app/views/**/*.php', 'public/views/**/*.html']
 			},
 			options: {
 				livereload: true
@@ -41,14 +39,6 @@ module.exports = function(grunt) {
 					outputStyle: 'compressed'
 				}
 			}
-		},
-		copy: {
-			build: {
-				files: [{
-					src: ['index.html', 'js/**', 'libs/**', 'img/**', 'css/**', 'videos/**', 'fonts/**'],
-					dest: 'build/'
-				}]
-			}
 		}
 	});
 
@@ -58,12 +48,7 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('deploy', [
-		'compass:production',
-	]);
-
-	grunt.registerTask('build', [
-		'compass:production',
-		'copy'
+		'compass:production'
 	]);
 
 };

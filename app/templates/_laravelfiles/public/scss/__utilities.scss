@@ -1,0 +1,13 @@
+/**
+ * Generic styling utilities/helpers
+ *
+ * @link http://getbootstrap.com/css/#helper-classes
+ */
+
+.clearfix {
+  @include pie-clearfix;
+}
+.hidden,
+[ng-cloak] {
+  display: none !important;
+}
