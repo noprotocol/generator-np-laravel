@@ -1,6 +1,6 @@
 {
   "name": "generator-np-laravel",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Laravel generator for Yeoman based on the best practices of NoProtocol",
   "keywords": [
     "yeoman-generator",

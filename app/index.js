@@ -67,6 +67,7 @@ NpLaravelGenerator.prototype.frontendSetup = function () {
 
 
 NpLaravelGenerator.prototype.patchLaravel = function () {
+  var self = this;
   this.log.write().info('Patching Laravel');
   var composer = JSON.parse(this.readFileAsString('composer.json'));
   ['name', 'description', 'keywords', 'license', 'minimum-stability'].forEach(function (key) {
@@ -114,13 +115,13 @@ NpLaravelGenerator.prototype.patchLaravel = function () {
    */
   //Create Laravel folders for the various view elements (layouts: basic layouts, pages: static pages, partials: small reusable elements, composers: classes run with each view)
   var dirs = ['layouts', 'pages', 'partials'];
-  dirs.forEach(function(dir) { 
+  dirs.forEach(function(dir) {
     fs.mkdir('app/views/' + dir);
   });
 
   // Create webroot folders (css, js, etc)
   var dirs = ['scss', 'css', 'js', 'img', 'fonts'];
-  dirs.forEach(function(dir) { 
+  dirs.forEach(function(dir) {
     fs.mkdir('public/' + dir);
   });
 
@@ -129,7 +130,7 @@ NpLaravelGenerator.prototype.patchLaravel = function () {
 
   //remove default routing file and replace with custom routing file
   fs.removeSync('app/routes.php');
-  this.copy('_laravelfiles/app/_routes.php', 'app/routes.php'); 
+  this.copy('_laravelfiles/app/_routes.php', 'app/routes.php');
   this.copy('_laravelfiles/app/views/layouts/_default.blade.php', 'app/views/layouts/default.blade.php'); //copy default layout from templates
   this.copy('_laravelfiles/app/controllers/_PagesController.php', 'app/controllers/PagesController.php'); //copy PagesController
   this.copy('_laravelfiles/app/views/pages/_index.blade.php', 'app/views/pages/index.blade.php'); //copy PageController@index's view file
@@ -147,21 +148,21 @@ NpLaravelGenerator.prototype.patchLaravel = function () {
 
   //copy main js
   //this.copy('_laravelfiles/public/js/_app.js', 'public/js/app.js');
- 
+
   //copy all the environments config files
 
   //copy local config
   fs.mkdir('app/config/development', function (err) {
-    if (err) return console.log(err);  
+    if (err) return console.log(err);
     fs.copy('app/config/database.php', 'app/config/development/database.php');
   }); //fs.mkDir
-  this.copy('_laravelfiles/app/config/development/_app.php', 'app/config/development/app.php'); 
+  this.copy('_laravelfiles/app/config/development/_app.php', 'app/config/development/app.php');
 
   //remove laravel's readme's
   fs.removeSync('readme.md');
   fs.removeSync('contributing.md');
 
-  //copy staging config  
+  //copy staging config
   fs.mkdir('app/config/staging', function (err) {
     if (err) return console.log(err);
     fs.copy('app/config/database.php', 'app/config/staging/database.php');
@@ -171,8 +172,8 @@ NpLaravelGenerator.prototype.patchLaravel = function () {
   fs.mkdir('app/config/production', function (err) {
     if (err) return console.log(err);
     fs.copy('app/config/database.php', 'app/config/production/database.php');
+    self.copy('_laravelfiles/app/config/production/_app.php', 'app/config/production/app.php');
   });
-
 
 };
 
