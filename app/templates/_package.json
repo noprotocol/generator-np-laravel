@@ -3,11 +3,8 @@
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
-    "grunt-contrib-compass": "*",
-    "grunt-contrib-watch": "*",
-    "grunt": "*"
-  },
-  "engines": {
-    "node": ">=0.10.0"
+    "gulp": "*",
+    "gulp-sass": "*",
+    "gulp-livereload": "*"
   }
 }

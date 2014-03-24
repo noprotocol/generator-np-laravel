@@ -17,5 +17,9 @@
     ga('create', 'UA-XXXX-Y', 'auto');
     ga('send', 'pageview');
   </script>
+
+  @if (App::environment() === 'development')
+    {{ HTML::script('http://localhost:35729/livereload.js') }}
+  @endif
 </body>
 </html>

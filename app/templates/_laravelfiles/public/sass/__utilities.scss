@@ -5,9 +5,12 @@
  */
 
 .clearfix {
-  @include pie-clearfix;
+  @include clearfix;
 }
 .hidden,
 [ng-cloak] {
   display: none !important;
+}
+[ng-click] {
+	cursor: pointer;
 }

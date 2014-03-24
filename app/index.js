@@ -59,7 +59,7 @@ NpLaravelGenerator.prototype.frontendSetup = function () {
   this.copy('_.editorconfig', '.editorconfig');
   this.copy('_.jshintrc', '.jshintrc');
   this.copy('_.htaccess', '.htaccess');
-  this.copy('_Gruntfile.js', 'Gruntfile.js');
+  this.copy('_gulpfile.js', 'gulpfile.js');
   this.copy('_.bowerrc', '.bowerrc');
   fs.removeSync('.gitignore');
   this.copy('_gitignore', '.gitignore');
@@ -120,7 +120,7 @@ NpLaravelGenerator.prototype.patchLaravel = function () {
   });
 
   // Create webroot folders (css, js, etc)
-  var dirs = ['scss', 'css', 'js', 'img', 'fonts'];
+  var dirs = ['sass', 'css', 'js', 'img', 'fonts'];
   dirs.forEach(function(dir) {
     fs.mkdir('public/' + dir);
   });
@@ -141,10 +141,10 @@ NpLaravelGenerator.prototype.patchLaravel = function () {
 //  fs.removeSync('app/models/User.php');
 //  this.copy('_laravelfiles/app/models/_User.php', 'app/models/User.php');
 
-  //copy scss
-  this.copy('_laravelfiles/public/scss/_main.scss', 'public/scss/main.scss');
-  this.copy('_laravelfiles/public/scss/__utilities.scss', 'public/scss/_utilities.scss');
-  this.copy('_laravelfiles/public/scss/__base.scss', 'public/scss/_base.scss');
+  //copy sass
+  this.copy('_laravelfiles/public/sass/_main.scss', 'public/sass/main.scss');
+  this.copy('_laravelfiles/public/sass/__utilities.scss', 'public/sass/_utilities.scss');
+  this.copy('_laravelfiles/public/sass/__base.scss', 'public/sass/_base.scss');
 
   //copy main js
   //this.copy('_laravelfiles/public/js/_app.js', 'public/js/app.js');
@@ -214,5 +214,5 @@ NpLaravelGenerator.prototype.compileCss = function () {
 }
 
 NpLaravelGenerator.prototype.completed = function () {
-  this.log.write().ok('NoProtocol Laravel Generator is complete!');
+  this.log.write().ok('NoProtocol Laravel Generator is complete! Time to run ' + 'gulp'.bold);
 }
