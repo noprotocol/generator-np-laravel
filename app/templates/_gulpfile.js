@@ -4,7 +4,7 @@ var livereload = require('gulp-livereload');
 
 
 gulp.task('sass', function () {
-    return gulp.src('app/sass/**/*.{scss,sass}')
+    return gulp.src('public/sass/**/*.{scss,sass}')
         .pipe(sass({
             errLogToConsole: true, 
             sourceComments: 'map'
@@ -13,7 +13,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', ['sass'], function () {
-    gulp.watch('app/public/sass/**/*.{scss,sass}', ['sass']);
+    gulp.watch('public/sass/**/*.{scss,sass}', ['sass']);
 
     var server = livereload();
     var globs = [

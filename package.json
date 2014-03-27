@@ -1,6 +1,6 @@
 {
   "name": "generator-np-laravel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Laravel generator for Yeoman based on the best practices of NoProtocol",
   "keywords": [
     "yeoman-generator",
@@ -8,7 +8,9 @@
     "NoProtocol"
   ],
   "homepage": "https://github.com/NoProtocol/generator-np-laravel",
-  "bugs": "https://github.com/NoProtocol/generator-np-laravel/issues",
+  "bugs": {
+    "url": "https://github.com/NoProtocol/generator-np-laravel/issues"
+  },
   "author": {
     "name": "Govert Verschuur",
     "email": "govert@noprotocol.nl",
