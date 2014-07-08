@@ -1,5 +1,11 @@
+
 # laravel
 /bootstrap/compiled.php
 
-# css files should be generated though grunt/compass
+# css files should be generated though gulp/sass
 /public/css/*
+
+# tmp & editor files
+.DS_Store
+.sass-cache
+nbproject

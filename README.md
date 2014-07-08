@@ -1,5 +1,11 @@
-# Noprotocol Laravel Generator
+# NoProtocol Laravel Generator
 
-Generates a Laravel project according to Noprotocol's best practices.
+Generates a Laravel project according to NoProtocol's best practices.
 
-BETA!
+Features:
+* Latest [Laravel](http://laravel.com/)
+* Live reload
+* [Bower](http://bower.io/)
+* [Gulp](http://gulpjs.com/) 
+* [Sass](http://sass-lang.com/)
+* [Bourbon](http://bourbon.io/) )

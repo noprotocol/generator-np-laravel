@@ -58,7 +58,6 @@ NpLaravelGenerator.prototype.frontendSetup = function () {
   this.copy('_bower.json', 'bower.json');
   this.copy('_.editorconfig', '.editorconfig');
   this.copy('_.jshintrc', '.jshintrc');
-  this.copy('_.htaccess', '.htaccess');
   this.copy('_gulpfile.js', 'gulpfile.js');
   this.copy('_.bowerrc', '.bowerrc');
   fs.removeSync('.gitignore');
@@ -134,6 +133,7 @@ NpLaravelGenerator.prototype.patchLaravel = function () {
   this.copy('_laravelfiles/app/views/layouts/_default.blade.php', 'app/views/layouts/default.blade.php'); //copy default layout from templates
   this.copy('_laravelfiles/app/controllers/_PagesController.php', 'app/controllers/PagesController.php'); //copy PagesController
   this.copy('_laravelfiles/app/views/pages/_index.blade.php', 'app/views/pages/index.blade.php'); //copy PageController@index's view file
+  this.copy('_laravelfiles/app/views/partials/_livereload.blade.php', 'app/views/partials/livereload.blade.php'); //copy PageController@index's view file
 //  this.copy('_laravelfiles/app/views/composers/_AppComposer.php', 'app/views/composers/AppComposer.php');  //copy AppComposer
 
    //copy BaseModel and User
@@ -207,11 +207,6 @@ NpLaravelGenerator.prototype.gitSetup = function () {
     cb();
   });
 };
-
-NpLaravelGenerator.prototype.compileCss = function () {
-//  var cb = this.async();
-//  passthru("grunt compass:development", cb);
-}
 
 NpLaravelGenerator.prototype.completed = function () {
   this.log.write().ok('NoProtocol Laravel Generator is complete! Time to run ' + 'gulp'.bold);
