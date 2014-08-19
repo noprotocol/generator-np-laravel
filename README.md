@@ -8,4 +8,4 @@ Features:
 * [Bower](http://bower.io/)
 * [Gulp](http://gulpjs.com/) 
 * [Sass](http://sass-lang.com/)
-* [Bourbon](http://bourbon.io/) )
+* [Bourbon](http://bourbon.io/)
