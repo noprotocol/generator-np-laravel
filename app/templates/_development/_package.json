@@ -1,0 +1,21 @@
+{
+    "name": "noprotocol.nl-2015",
+    "version": "0.0.1",
+    "private": true,
+    "description": "",
+    "authors": "NoProtocol <info@noprotocol.nl>",
+    "scripts": {
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+        "gulp": "~3.9.0",
+        "gulp-noprotocol": "^0.5.3",
+        "gulp-livereload": "~3.8.0",
+        "gulp-sass": "~2.0.1",
+        "gulp-uglify": "~1.2.0"
+
+    },
+    "license": "Proprietary",
+    "contributors":[]
+}

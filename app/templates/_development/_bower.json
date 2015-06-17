@@ -1,0 +1,13 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "dependencies": {},
+  "authors": "NoProtocol <info@noprotocol.nl>",
+  "license": "Proprietary",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}
