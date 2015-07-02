@@ -376,6 +376,7 @@ NpLaravelGenerator.prototype.setupBackend = function () {
 
   fs.copy(__dirname + '/templates/_laravel/app/Http/_routes.php', 'app/Http/routes.php', logError);
   fs.copy(__dirname + '/templates/_laravel/app/Http/Controllers/_PagesController.php', 'app/Http/Controllers/PagesController.php', logError); 
+  fs.copy(__dirname + '/templates/_laravel/app/Http/Controllers/_RobotsController.php', 'app/Http/Controllers/RobotsController.php', logError); 
   fs.copy(__dirname + '/templates/_laravel/resources/views/_noprotocol.blade.php', 'resources/views/noprotocol.blade.php', logError);
 };
 

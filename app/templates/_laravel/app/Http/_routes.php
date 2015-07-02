@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PagesController@noprotocol');
+Route::get('robots.txt', 'RobotsController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
