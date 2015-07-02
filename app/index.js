@@ -332,23 +332,17 @@ NpLaravelGenerator.prototype.setupAssets = function () {
   this.log.write().ok('Setting up assets files and directories');
   var self = this;
 
-  // create sass folders
-  var dirs = ['js', 'sass'];
-  dirs.forEach(function(dir) {
-    fs.mkdirs('resources/assets/' + dir, logError);
-  });
-
   // copy base sass files
-  fs.copy(__dirname + '/templates/_laravel/resources/assets/sass/_app.scss', 'resources/assets/sass/_app.scss', logError);
-  fs.copy(__dirname + '/templates/_laravel/resources/assets/sass/_fonts.scss', 'resources/assets/sass/_fonts.scss', logError);
-  fs.copy(__dirname + '/templates/_laravel/resources/assets/sass/_main.scss', 'resources/assets/sass/main.scss', logError);
-  fs.copy(__dirname + '/templates/_laravel/resources/assets/sass/_mixins.scss', 'resources/assets/sass/_mixins.scss', logError);
-  fs.copy(__dirname + '/templates/_laravel/resources/assets/sass/_reset.scss', 'resources/assets/sass/_reset.scss', logError);
-  fs.copy(__dirname + '/templates/_laravel/resources/assets/sass/_utils.scss', 'resources/assets/sass/_utils.scss', logError);
+  fs.copy(__dirname + '/templates/_laravel/resources/sass/_app.scss', 'resources/sass/_app.scss', logError);
+  fs.copy(__dirname + '/templates/_laravel/resources/sass/_fonts.scss', 'resources/sass/_fonts.scss', logError);
+  fs.copy(__dirname + '/templates/_laravel/resources/sass/_main.scss', 'resources/sass/main.scss', logError);
+  fs.copy(__dirname + '/templates/_laravel/resources/sass/_mixins.scss', 'resources/sass/_mixins.scss', logError);
+  fs.copy(__dirname + '/templates/_laravel/resources/sass/_reset.scss', 'resources/sass/_reset.scss', logError);
+  fs.copy(__dirname + '/templates/_laravel/resources/sass/_utils.scss', 'resources/sass/_utils.scss', logError);
 
 
   // copy base/placeholder app.js file
-  fs.copy(__dirname + '/templates/_laravel/resources/assets/js/_app.js', 'resources/assets/js/app.js', logError);
+  fs.copy(__dirname + '/templates/_laravel/resources/js/_app.js', 'resources/js/app.js', logError);
 };
 
 /**

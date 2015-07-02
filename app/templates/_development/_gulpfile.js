@@ -3,7 +3,7 @@ var noprotocol = require('gulp-noprotocol');
 var livereload = require('gulp-livereload');
 
 gulp.task('css', function () {
-    return gulp.src('resources/assets/sass/**/*.{scss,sass}')
+    return gulp.src('resources/sass/**/*.{scss,sass}')
         .pipe(noprotocol.css())
         .on('error', noprotocol.notify)
         .pipe(gulp.dest('public/build/css'));
@@ -18,7 +18,7 @@ gulp.task('bundle-libs', function () {
 
 gulp.task('bundle-app', function () {
     return gulp
-        .src(['resources/assets/js/**/*.js'])
+        .src(['resources/js/**/*.js'])
         .on('error', noprotocol.notify)
         .pipe(gulp.dest('public/build/js'));
 });
@@ -26,8 +26,8 @@ gulp.task('bundle-app', function () {
 gulp.task('watch', ['css', 'bundle-app', 'bundle-libs'], function () {
 
     livereload.listen();
-    gulp.watch(['resources/assets/sass/**/*.{scss,sass}'], ['css']);
-    gulp.watch(['resources/assets/js/**/*.js'], ['bundle-app']);
+    gulp.watch(['resources/sass/**/*.{scss,sass}'], ['css']);
+    gulp.watch(['resources/js/**/*.js'], ['bundle-app']);
     gulp.watch(['bower_components/**/*.js'], ['bundle-libs']);
     gulp.watch([
         'public/build/**/*.css',
