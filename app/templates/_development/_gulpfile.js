@@ -11,15 +11,16 @@ gulp.task('css', function () {
 
 gulp.task('bundle-libs', function () {
     return gulp.src([])
-        .pipe(noprotocol.bundle('libs.bundle.js'))
+        .pipe(noprotocol.bundle('libs.min.js'))
         .on('error', noprotocol.notify)
-        .pipe(gulp.dest('public/build/hs'));
+        .pipe(gulp.dest('public/build/js'));
 });
 
 gulp.task('bundle-app', function () {
     return gulp
         .src(['resources/js/**/*.js'])
         .on('error', noprotocol.notify)
+        .pipe(noprotocol.bundle('app.min.js'))
         .pipe(gulp.dest('public/build/js'));
 });
 
