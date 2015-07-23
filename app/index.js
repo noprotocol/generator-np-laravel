@@ -8,6 +8,7 @@ var fs = require('fs-extra');
 var shell = require('shelljs');
 var junk = require('junk');
 var chalk = require('chalk');
+var slug = require('slug');
 
 // Base app settings
 var settings = {
@@ -120,6 +121,9 @@ NpLaravelGenerator.prototype.configureApp = function () {
 
   this.log.write().info('App configuration');
 
+  this.appname = slug(this.appname);
+  this.dbName = slug(this.appname, '_');
+
   var self = this;
 
   if(this.options.skipdbsetup) {
@@ -128,7 +132,7 @@ NpLaravelGenerator.prototype.configureApp = function () {
 
   if(this.options.quick) {
     settings.appName = this.appname;
-    settings.dbName = this.appname + '_ddb';
+    settings.dbName = this.dbName + '_ddb';
     cb();
   }
   else {
@@ -198,7 +202,7 @@ NpLaravelGenerator.prototype.configureApp = function () {
         name    : 'dbName',
         message : 'Database name',
         default : function (props) {
-          return props.appName  + '_ddb';
+          return slug(props.appName + '_ddb', '_');
         }
       },
 
@@ -221,13 +225,13 @@ NpLaravelGenerator.prototype.configureApp = function () {
 
     ], function(answers) {
 
-        settings.appName =  answers.appName || settings.appName;
+        settings.appName =  slug(answers.appName) || settings.appName;
         settings.appVersion =  answers.appVersion || settings.appVersion;
         settings.laravelVersion =  answers.laravelVersion || settings.laravelVersion;
         settings.doDbSetup =  answers.doDbSetup || settings.doDbSetup;
         settings.dbUsername =  answers.dbUsername || settings.dbUsername;
         settings.dbPassword =  answers.dbPassword || settings.dbPassword;
-        settings.dbName =  answers.dbName || settings.dbName;
+        settings.dbName =  slug(answers.dbName, '_') || settings.dbName;
         settings.doGitSetup =  answers.doGitSetup || settings.doGitSetup;
         settings.gitRemote =  answers.gitRemote || settings.gitRemote;  
         cb();  

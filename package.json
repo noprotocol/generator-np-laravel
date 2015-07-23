@@ -30,6 +30,7 @@
     "passthru": "~0.4.0",
     "path": "^0.11.14",
     "shelljs": "^0.5.1",
+    "slug": "^0.9.1",
     "util": "^0.10.3",
     "yeoman-generator": "~0.19.2"
   },
