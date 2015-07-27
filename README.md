@@ -2,7 +2,7 @@
 
 The *NoProtocol Laravel Generator* creates a project scaffolding for a Laravel project based on NoProtocol's best practices. This includes such features as:
 
-* Complete Gulp build file (based on our own ) [gulp-noprotocol](https://github.com/NoProtocol/gulp-noprotocol) library.
+* Complete Gulp build file (based on our own) [gulp-noprotocol](https://github.com/NoProtocol/gulp-noprotocol) library
 * Automatic robots.txt based on environment setting
 * Pre-defined SASS & JS structure
 
@@ -24,13 +24,13 @@ Make a new directory, and `cd` into it:
 
 	mkdir my-new-project && cd $_
 
-Run `yo np-laravel` or simply `yo` and select the `Np Laravel` generator.	
+Run `yo np-laravel` or simply `yo` and select the `Np Laravel` generator.
 
 ### Options:
 
-* `--quick` Skip interaction and install app with defaults* and setup the database, create Git repository and install all Composer/NPM/Bower dependencies 
+* `--quick` Skip interaction and install app with defaults* and setup the database, create Git repository and install all Composer/NPM/Bower dependencies
 * `--skipdbsetup` Skip the database setup
-* `--skipdependencies` Skip installation of all the Composer/NPM/Bower dependencies                                                     
+* `--skipdependencies` Skip installation of all the Composer/NPM/Bower dependencies
 * `--force` Force installation even if the directory isn't empty
 
 __\*__ Defaults are as follows:
@@ -66,7 +66,7 @@ The gulp watch task also activates Livereload which is set to reload on changes 
 Due to repeated incidents in which staging server still allowed crawlers to access everything, the generator comes with `RobotsController.php`. On any Laravel environment other the production the output will be `Disallow: *`.
 
 ### .htaccess
-The .htaccess file has been augmented with several settings taken the [HTML5 boilerplate](https://github.com/h5bp/server-configs-apache/blob/master/dist/.htaccess) such as media types, security settings, gzip etc. The option to force HTTPS for one or more domains has also been added. See the file for more info.
+The .htaccess file has been augmented with several settings taken from the [HTML5 boilerplate](https://github.com/h5bp/server-configs-apache/blob/master/dist/.htaccess) such as media types, security settings, gzip etc. The option to force HTTPS for one or more domains has also been added. See the file for more info.
 
 ### Splash page
-A Noprotocol splash page on the index :)
+A NoProtocol splash page on the index :)
