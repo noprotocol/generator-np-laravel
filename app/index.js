@@ -210,13 +210,13 @@ NpLaravelGenerator.prototype.configureApp = function () {
       // GIT setup (if needed) questions  
       {
         type    : 'confirm',
-        name    : 'setupGit',
+        name    : 'doGitSetup',
         message : 'Would you like to setup a git repository?',
         default : true
       },
       {
         when    : function(props) {
-          return props.setupGit;
+          return props.doGitSetup;
         },
         type    : 'input',
         name    : 'gitRemote',
