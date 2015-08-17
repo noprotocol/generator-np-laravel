@@ -131,6 +131,7 @@ NpLaravelGenerator.prototype.configureApp = function () {
   }
 
   if(this.options.quick) {
+    settings.doDbSetup = true;
     settings.appName = this.appname;
     settings.dbName = this.dbName + '_ddb';
     cb();
@@ -163,13 +164,13 @@ NpLaravelGenerator.prototype.configureApp = function () {
       // DB setup (if needed) questions  
       {
         type    : 'confirm',
-        name    : 'setupDB',
+        name    : 'doDbSetup',
         message : 'Would you like to setup a database?',
         default : true
       },
       {
         when    : function(props) {
-          return props.setupDB;
+          return props.doDbSetup;
         },
         type    : 'confirm',
         name    : 'isRootUser',
@@ -178,7 +179,7 @@ NpLaravelGenerator.prototype.configureApp = function () {
       },
       {
         when    : function(props) {
-          return !props.isRootUser && props.setupDB;
+          return !props.isRootUser && props.doDbSetup;
         },
         type    : 'input',
         name    : 'dbUsername',
@@ -187,7 +188,7 @@ NpLaravelGenerator.prototype.configureApp = function () {
       },
       {
         when    : function(props) {
-          return !props.isRootUser && props.setupDB;
+          return !props.isRootUser && props.doDbSetup;
         },
         type    : 'password',
         name    : 'dbPassword',
@@ -196,7 +197,7 @@ NpLaravelGenerator.prototype.configureApp = function () {
       },
       {
         when    : function(props) {
-          return props.setupDB;
+          return props.doDbSetup;
         },
         type    : 'input',
         name    : 'dbName',
@@ -228,12 +229,19 @@ NpLaravelGenerator.prototype.configureApp = function () {
         settings.appName =  slug(answers.appName) || settings.appName;
         settings.appVersion =  answers.appVersion || settings.appVersion;
         settings.laravelVersion =  answers.laravelVersion || settings.laravelVersion;
-        settings.doDbSetup =  answers.doDbSetup || settings.doDbSetup;
-        settings.dbUsername =  answers.dbUsername || settings.dbUsername;
-        settings.dbPassword =  answers.dbPassword || settings.dbPassword;
-        settings.dbName =  slug(answers.dbName, '_') || settings.dbName;
-        settings.doGitSetup =  answers.doGitSetup || settings.doGitSetup;
-        settings.gitRemote =  answers.gitRemote || settings.gitRemote;  
+        settings.doDbSetup =  answers.doDbSetup;
+
+        if(settings.doDbSetup) {
+          settings.dbUsername =  answers.dbUsername || settings.dbUsername;
+          settings.dbPassword =  answers.dbPassword || settings.dbPassword;
+          settings.dbName =  slug(answers.dbName, '_') || settings.dbName;
+        }
+                
+        settings.doGitSetup =  answers.doGitSetup;
+        if(settings.doGitSetup) {
+          settings.gitRemote =  answers.gitRemote || settings.gitRemote;    
+        }
+        
         cb();  
     }); 
     
