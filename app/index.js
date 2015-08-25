@@ -508,8 +508,8 @@ NpLaravelGenerator.prototype.gitSetup = function () {
        //errors.push(git.output);
        logError(git.output);
     } else {
-      shell.exec('git add .');
-      shell.exec('git commit -m \'Initial commit\'');
+      shell.exec('git add .', {silent:true});
+      shell.exec('git commit -m \'Initial commit\'', {silent:true});
       if(settings.gitRemote !== '') {
         var remote = shell.exec('git remote add origin ' + settings.gitRemote);
 
