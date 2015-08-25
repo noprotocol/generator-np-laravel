@@ -40,10 +40,10 @@ var NpLaravelGenerator = module.exports = function NpLaravelGenerator(args, opti
   // skip the db settings
   this.option('skipdbsetup', {'desc': 'Skip the database setup', 'defaults': false});
 
-  // skip the dependencies installation  
-  this.option('skipdependencies', {'desc': 'Skip installation of all the dependencies', 'defaults': false});  
+  // skip the dependencies installation
+  this.option('skipdependencies', {'desc': 'Skip installation of all the dependencies', 'defaults': false});
 
-  this.option('force', {'desc': 'Force installation if directory not empty', 'defaults': false});  
+  this.option('force', {'desc': 'Force installation if directory not empty', 'defaults': false});
 
   fs.readJSON(path.join(__dirname, '../package.json'), function (err, data) {
     if (err) return console.error(err);
@@ -101,7 +101,7 @@ NpLaravelGenerator.prototype.preCheck = function () {
       }], function(answers) {
         if(answers.forceInstall) {
           // force installation
-          cb();    
+          cb();
         }
         // break install
         return;
@@ -139,13 +139,13 @@ NpLaravelGenerator.prototype.configureApp = function () {
   else {
     this.prompt([
       // General ap config question(s)
-      {  
+      {
         type    : 'input',
         name    : 'appName',
         message : 'Project name',
         default : this.appname
       },
-      {  
+      {
         type    : 'input',
         name    : 'appVersion',
         message : 'Project version',
@@ -161,7 +161,7 @@ NpLaravelGenerator.prototype.configureApp = function () {
         default : settings.laravelVersion
       },
 
-      // DB setup (if needed) questions  
+      // DB setup (if needed) questions
       {
         type    : 'confirm',
         name    : 'doDbSetup',
@@ -184,7 +184,7 @@ NpLaravelGenerator.prototype.configureApp = function () {
         type    : 'input',
         name    : 'dbUsername',
         message : 'Database username',
-        default : 'root' 
+        default : 'root'
       },
       {
         when    : function(props) {
@@ -193,7 +193,7 @@ NpLaravelGenerator.prototype.configureApp = function () {
         type    : 'password',
         name    : 'dbPassword',
         message : 'Database password',
-        default : 'root' 
+        default : 'root'
       },
       {
         when    : function(props) {
@@ -207,7 +207,7 @@ NpLaravelGenerator.prototype.configureApp = function () {
         }
       },
 
-      // GIT setup (if needed) questions  
+      // GIT setup (if needed) questions
       {
         type    : 'confirm',
         name    : 'doGitSetup',
@@ -236,15 +236,15 @@ NpLaravelGenerator.prototype.configureApp = function () {
           settings.dbPassword =  answers.dbPassword || settings.dbPassword;
           settings.dbName =  slug(answers.dbName, '_') || settings.dbName;
         }
-                
+
         settings.doGitSetup =  answers.doGitSetup;
         if(settings.doGitSetup) {
-          settings.gitRemote =  answers.gitRemote || settings.gitRemote;    
+          settings.gitRemote =  answers.gitRemote || settings.gitRemote;
         }
-        
-        cb();  
-    }); 
-    
+
+        cb();
+    });
+
   }
 };
 
@@ -254,7 +254,7 @@ NpLaravelGenerator.prototype.configureApp = function () {
  */
 NpLaravelGenerator.prototype.fetchLaravelApp = function () {
   var cb = this.async();
-  
+
   this.log.write().ok('Downloading Laravel ' + settings.laravelVersion);
 
   //strip is needed to extract to current dir instead of dir with name of tarball
@@ -269,7 +269,7 @@ NpLaravelGenerator.prototype.cleanLaravel = function () {
 
   // use ignore and buld file
   fs.removeSync('.gitignore', logError);
-  fs.removeSync('gulpfile.js', logError);  
+  fs.removeSync('gulpfile.js', logError);
 
   // use NP .htaccess file
   fs.removeSync('public/.htaccess', logError);
@@ -278,9 +278,9 @@ NpLaravelGenerator.prototype.cleanLaravel = function () {
   fs.removeSync('readme.md', logError);
 
   // clean laravel views/controllers/routes etc
-  fs.removeSync('app/views/hello.php', logError); 
-  fs.removeSync('app/Http/Controllers/HomeController.php', logError); 
-  fs.removeSync('app/Http/Controllers/WelcomeController.php', logError); 
+  fs.removeSync('app/views/hello.php', logError);
+  fs.removeSync('app/Http/Controllers/HomeController.php', logError);
+  fs.removeSync('app/Http/Controllers/WelcomeController.php', logError);
   fs.removeSync('app/Http/routes.php', logError);
 
   // remove default less/bootstrap files
@@ -381,8 +381,8 @@ NpLaravelGenerator.prototype.setupBackend = function () {
   this.log.write().ok('Setting up backend (routes, controllers, NoProtocol splash page, etc)');
 
   fs.copy(__dirname + '/templates/_laravel/app/Http/_routes.php', 'app/Http/routes.php', logError);
-  fs.copy(__dirname + '/templates/_laravel/app/Http/Controllers/_PagesController.php', 'app/Http/Controllers/PagesController.php', logError); 
-  fs.copy(__dirname + '/templates/_laravel/app/Http/Controllers/_RobotsController.php', 'app/Http/Controllers/RobotsController.php', logError); 
+  fs.copy(__dirname + '/templates/_laravel/app/Http/Controllers/_PagesController.php', 'app/Http/Controllers/PagesController.php', logError);
+  fs.copy(__dirname + '/templates/_laravel/app/Http/Controllers/_RobotsController.php', 'app/Http/Controllers/RobotsController.php', logError);
   fs.copy(__dirname + '/templates/_laravel/resources/views/_noprotocol.blade.php', 'resources/views/noprotocol.blade.php', logError);
 };
 
@@ -408,18 +408,18 @@ NpLaravelGenerator.prototype.setupFileRights = function () {
 };
 
 /**
- * Patch the Bower settings 
+ * Patch the Bower settings
  */
 NpLaravelGenerator.prototype.patchBowerSettings = function () {
   this.log.write().ok('Patching bower.json');
 
   var cb = this.async();
   var self = this;
-  
+
   fs.readJSON('./bower.json', function (err, data) {
     if(err) {
       logError(err);
-    } 
+    }
 
     // overwrite the placeholder appname
     data.name = 'noprotocol/'+settings.appName;
@@ -433,18 +433,18 @@ NpLaravelGenerator.prototype.patchBowerSettings = function () {
 };
 
 /**
- * Patch the NPM settings 
+ * Patch the NPM settings
  */
 NpLaravelGenerator.prototype.patchNpmSettings = function () {
   this.log.write().ok('Patching package.json');
 
   var cb = this.async();
   var self = this;
-  
+
   fs.readJSON('./package.json', function (err, data) {
     if(err) {
       logError(err);
-    } 
+    }
 
     // overwrite the placeholder appname
     data.name = settings.appName;
@@ -465,11 +465,11 @@ NpLaravelGenerator.prototype.patchComposerSettings = function () {
 
   var cb = this.async();
   var self = this;
-  
+
   fs.readJSON('./composer.json', function (err, data) {
     if(err) {
       logError(err);
-    } 
+    }
 
     // delete items
     ['minimum-stability'].forEach(function (key) {
@@ -503,11 +503,13 @@ NpLaravelGenerator.prototype.gitSetup = function () {
     this.log.write().ok('Setting up empty git repo');
 
     var git = shell.exec('git init', {silent:true});
-   
+
     if (git.code !== 0) {
        //errors.push(git.output);
        logError(git.output);
     } else {
+      shell.exec('git add .');
+      shell.exec('git commit -m \'Initial commit\'');
       if(settings.gitRemote !== '') {
         var remote = shell.exec('git remote add origin ' + settings.gitRemote);
 
@@ -517,7 +519,7 @@ NpLaravelGenerator.prototype.gitSetup = function () {
           this.log.write().ok('git remote added');
         }
       }
-    } 
+    }
   }
 
   cb();
@@ -532,20 +534,20 @@ NpLaravelGenerator.prototype.setupDB = function () {
 
   if(settings.doDbSetup && this.options.skipdbsetup === false) {
     this.log.write().ok('Setting up database '+settings.dbName);
-  
+
     //var sql = 'mysql -u'+settings.dbUsername+' -p'+settings.dbPassword+' -e "create database '+settings.dbName+'"';
     var sql = 'MYSQL_PWD=' + settings.dbPassword + ' mysql -u'+settings.dbUsername+' -e "create database '+settings.dbName+'" --silent';
 
     // need to run this command using shelljs as using a password on the command line always causes a textfeed which passthru sees as an error
     var res = shell.exec(sql, {silent:true});
-   
+
     if (res.code !== 0) {
        errors.push(res.output);
-    }  
+    }
   } else {
     this.log.write().ok('Skipping database setup');
-  } 
-  cb(); 
+  }
+  cb();
 };
 
 /**
@@ -585,7 +587,7 @@ NpLaravelGenerator.prototype.installComposerDependencies = function () {
 NpLaravelGenerator.prototype.installNPMDependencies = function () {
   var cb = this.async();
   var self = this;
-  
+
   if(this.options.skipdependencies === false) {
     this.log.write().ok('Installing NPM dependencies');
 
@@ -599,7 +601,7 @@ NpLaravelGenerator.prototype.installNPMDependencies = function () {
       var install = shell.exec('npm install', {silent:true});
       if (install.code !== 0) {
         errors.push('NPM dependencies install error: ' + install.output);
-      } 
+      }
       cb();
     }
   } else {
@@ -614,7 +616,7 @@ NpLaravelGenerator.prototype.installNPMDependencies = function () {
 NpLaravelGenerator.prototype.installBowerDependencies = function () {
   var cb = this.async();
   var self = this;
-  
+
   // check if bower command is installed
   var res = shell.exec('bower -v', {silent:true});
 
@@ -628,7 +630,7 @@ NpLaravelGenerator.prototype.installBowerDependencies = function () {
 
       if (install.code !== 0) {
         errors.push('Bower dependencies install error: ' + install.output);
-      } 
+      }
       cb();
     }
   } else {
@@ -644,16 +646,16 @@ NpLaravelGenerator.prototype.setupLaravel = function () {
   this.log.write().ok('Setting up Laravel config');
   var self = this;
   var cb = this.async();
-  
+
   // copy env file
   fs.rename('./.env.example', './.env', logError);
 
-  // edit env file (environment, db, debug settings) 
+  // edit env file (environment, db, debug settings)
   fs.readFile('./.env', 'utf8', function (err,data) {
     if (err) {
       errors.push('Cannot open .env file for editing.');
     }
-  
+
     data = data.replace(/APP_ENV=local/g, 'APP_ENV=development');
     data = data.replace(/DB_DATABASE=homestead/g, 'DB_DATABASE='+settings.dbName);
     data = data.replace(/DB_USERNAME=homestead/g, 'DB_USERNAME='+settings.dbUsername);
@@ -686,13 +688,13 @@ NpLaravelGenerator.prototype.completed = function () {
 
   var installerErrors = (errors.length === 0)  ? chalk.green(0) : chalk.red(errors.length);
 
-  this.log.write().ok('Installion completed with %s errors.', installerErrors); 
-  
+  this.log.write().ok('Installion completed with %s errors.', installerErrors);
+
   if(errors.length !== 0) {
     errors.forEach(function(error) {
       self.log.write().conflict(error);
     });
-  } 
+  }
 
   if(settings.createAppKey) {
     this.log.write().info('You still need to create an app key after manually installing the Composer dependencies');
