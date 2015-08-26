@@ -491,40 +491,6 @@ NpLaravelGenerator.prototype.patchComposerSettings = function () {
   });
 };
 
-
-/**
- * Git repository setup
- */
-NpLaravelGenerator.prototype.gitSetup = function () {
-  var cb = this.async();
-  var self = this;
-
-  if(settings.doGitSetup) {
-    this.log.write().ok('Setting up empty git repo');
-
-    var git = shell.exec('git init', {silent:true});
-
-    if (git.code !== 0) {
-       //errors.push(git.output);
-       logError(git.output);
-    } else {
-      shell.exec('git add .', {silent:true});
-      shell.exec('git commit -m \'Initial commit\'', {silent:true});
-      if(settings.gitRemote !== '') {
-        var remote = shell.exec('git remote add origin ' + settings.gitRemote);
-
-        if (remote.code !== 0) {
-          errors.push(remote.output);
-        } else {
-          this.log.write().ok('git remote added');
-        }
-      }
-    }
-  }
-
-  cb();
-};
-
 /**
  * Setup the development DB
  */
@@ -674,6 +640,39 @@ NpLaravelGenerator.prototype.setupLaravel = function () {
       errors.push('Error generating app key.');
   } else {
     settings.createAppKey = false;
+  }
+
+  cb();
+};
+
+/**
+ * Git repository setup
+ */
+NpLaravelGenerator.prototype.gitSetup = function () {
+  var cb = this.async();
+  var self = this;
+
+  if(settings.doGitSetup) {
+    this.log.write().ok('Setting up empty git repo');
+
+    var git = shell.exec('git init', {silent:true});
+
+    if (git.code !== 0) {
+       //errors.push(git.output);
+       logError(git.output);
+    } else {
+      shell.exec('git add .', {silent:true});
+      shell.exec('git commit -m \'Initial Commit\'', {silent:true});
+      if(settings.gitRemote !== '') {
+        var remote = shell.exec('git remote add origin ' + settings.gitRemote);
+
+        if (remote.code !== 0) {
+          errors.push(remote.output);
+        } else {
+          this.log.write().ok('git remote added');
+        }
+      }
+    }
   }
 
   cb();
