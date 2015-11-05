@@ -57,17 +57,17 @@ NpLaravelGenerator.prototype.animateLogo = function () {
   var cb = this.async();
   this.log.write();
   var count = 35;
-  var no = '\r   NO'.bold;
-  var protocol = 'PROTOCOL'.magenta.bold;
+  var no = '\r   NO';
+  var protocol = 'PROTOCOL';
   var self = this;
   var animate = function () {
-    self.log.write(no + (new Array(count).join(' ')) + protocol + ':// '.bold);
+    self.log.write(no + (new Array(count).join(' ')) + protocol + ':// ');
     count--;
     if (count === 0) {
       setTimeout(function () {
         self.log.write(no + protocol + ';// ');
         setTimeout(function () {
-          self.log.write(no + protocol + ':// '.bold);
+          self.log.write(no + protocol + ':// ');
           setTimeout(function () {
             self.log.write('\n\n');
             cb();
