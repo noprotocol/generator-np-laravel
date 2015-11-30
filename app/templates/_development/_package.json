@@ -1,20 +1,20 @@
 {
-    "name": "noprotocol.nl-2015",
+    "name": "noprotocol.nl-2016",
     "version": "0.0.1",
     "private": true,
     "description": "",
     "authors": "NoProtocol <info@noprotocol.nl>",
     "scripts": {
+        "setup": "composer install && npm install",
+        "start": "./node_modules/.bin/gulp watch",
+        "deploy": "composer install && npm install && ./node_modules/.bin/gulp deploy"
     },
     "dependencies": {
     },
     "devDependencies": {
         "gulp": "~3.9.0",
-        "gulp-noprotocol": "^0.5.3",
-        "gulp-livereload": "~3.8.0",
-        "gulp-sass": "~2.0.1",
-        "gulp-uglify": "~1.2.0"
-
+        "gulp-noprotocol": "^0.7.0",
+        "gulp-livereload": "~3.8.0"
     },
     "license": "Proprietary",
     "contributors":[]

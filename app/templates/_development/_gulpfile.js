@@ -10,7 +10,9 @@ gulp.task('css', function () {
 });
 
 gulp.task('bundle-libs', function () {
-    return gulp.src([])
+    return gulp.src([
+        //'node_modules/jquery/dist/jquery.min.js'
+    ])
         .pipe(noprotocol.bundle('libs.min.js'))
         .on('error', noprotocol.notify)
         .pipe(gulp.dest('public/build/js'));
@@ -29,7 +31,6 @@ gulp.task('watch', ['css', 'bundle-app', 'bundle-libs'], function () {
     livereload.listen();
     gulp.watch(['resources/sass/**/*.{scss,sass}'], ['css']);
     gulp.watch(['resources/js/**/*.js'], ['bundle-app']);
-    gulp.watch(['bower_components/**/*.js'], ['bundle-libs']);
     gulp.watch([
         'public/build/**/*.css',
         'public/build/**/*.js',
