@@ -44,12 +44,9 @@
   "devDependencies": {
     "mocha": "~2.3.4"
   },
-  "peerDependencies": {
-    "yo": ">=1.4.6"
-  },
   "engines": {
-    "node": ">=0.8.0",
-    "npm": ">=1.2.10"
+    "node": ">=0.12",
+    "npm": ">=2.0"
   },
   "license": "MIT"
 }
