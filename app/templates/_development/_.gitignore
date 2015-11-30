@@ -76,7 +76,6 @@ nb-configuration.xml
 ######################
 
 ## Logs
-logs
 *.log
 
 ## Runtime data
