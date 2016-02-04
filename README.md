@@ -36,8 +36,8 @@ Run `yo np-laravel` or simply `yo` and select the `Np Laravel` generator.
 __\*__ Defaults are as follows:
 
 * Projectname: __dirname__
-* Project version: __0.0.1__
-* Laravel version: __5.1.1__
+* Project version: __1.0.0__
+* Laravel version: __5.2__
 * Setup database: __yes__
 * Database credentials: __root/root__
 * Database name: __projectname_ddb__
@@ -51,7 +51,7 @@ When the generator is finished, run `gulp` and you're done.
 ## Features:
 
 ### Laravel
-Laravel 5.1, 5.0 or master. See [Laravel](http://laravel.com/) for the various versions.
+Laravel `5.2`, `5.1.11`, `5.1.4`, `5.1` or `master`. See the [Laravel site](http://laravel.com/) for the various versions.
 
 ### Gulp
 Build the app using [Gulp](http://gulpjs.com/) and our own [gulp-noprotocol](https://github.com/NoProtocol/gulp-noprotocol) (which takes care of bundling files, running sass etc).
