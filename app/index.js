@@ -13,8 +13,8 @@ var slug = require('slug');
 // Base app settings
 var settings = {
   appName: '',
-  appVersion: '0.0.1',
-  laravelVersion: 'v5.1.11',
+  appVersion: '1.0.0',
+  laravelVersion: 'v5.2.0',
   doDbSetup: true,
   dbUsername: 'root',
   dbPassword: 'root',
@@ -29,7 +29,7 @@ var errors = [];
 var self = this;
 
 // options for which laravel version to download
-var laravelVersions = [settings.laravelVersion, 'master'];
+var laravelVersions = [settings.laravelVersion, 'v5.1.11', 'v5.1.4', 'v5.1', 'master'];
 
 var NpLaravelGenerator = module.exports = function NpLaravelGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
@@ -149,7 +149,7 @@ NpLaravelGenerator.prototype.configureApp = function () {
         type    : 'input',
         name    : 'appVersion',
         message : 'Project version',
-        default : '0.0.1'
+        default : settings.appVersion
       },
 
       //Laravel package question(s)
