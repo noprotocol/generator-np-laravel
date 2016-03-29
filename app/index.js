@@ -14,7 +14,7 @@ var slug = require('slug');
 var settings = {
   appName: '',
   appVersion: '1.0.0',
-  laravelVersion: 'v5.2.0',
+  laravelVersion: 'v5.2.24',
   doDbSetup: true,
   dbUsername: 'root',
   dbPassword: 'root',
@@ -29,7 +29,7 @@ var errors = [];
 var self = this;
 
 // options for which laravel version to download
-var laravelVersions = [settings.laravelVersion, 'v5.1.11', 'v5.1.4', 'v5.1', 'master'];
+var laravelVersions = [settings.laravelVersion, 'v5.2.23', 'v5.2.15', 'v5.2.0', 'v5.1.11', 'v5.1.4', 'v5.1', 'master'];
 
 var NpLaravelGenerator = module.exports = function NpLaravelGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);

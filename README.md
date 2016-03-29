@@ -37,7 +37,7 @@ __\*__ Defaults are as follows:
 
 * Projectname: __dirname__
 * Project version: __1.0.0__
-* Laravel version: __5.2__
+* Laravel version: __5.2.24__
 * Setup database: __yes__
 * Database credentials: __root/root__
 * Database name: __projectname_ddb__
@@ -51,7 +51,7 @@ When the generator is finished, run `gulp` and you're done.
 ## Features:
 
 ### Laravel
-Laravel `5.2`, `5.1.11`, `5.1.4`, `5.1` or `master`. See the [Laravel site](http://laravel.com/) for the various versions.
+Laravel `v5.2.24`, `v5.2.23`, `v5.2.15`, `v5.2.0`, `5.1.11`, `5.1.4`, `5.1` or `master`. See the [Laravel site](http://laravel.com/) for the various versions.
 
 ### Gulp
 Build the app using [Gulp](http://gulpjs.com/) and our own [gulp-noprotocol](https://github.com/NoProtocol/gulp-noprotocol) (which takes care of bundling files, running sass etc).
