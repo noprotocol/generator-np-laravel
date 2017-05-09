@@ -30,8 +30,8 @@
 
         @yield('content')
 
-        <script src="build/js/bundle.js"></script>    
-        <script src="build/js/app.js"></script>
+        <script src="build/js/libs.min.js"></script>
+        <script src="build/js/app.min.js"></script>
 
         @if (App::environment() === 'production')
         <script>
